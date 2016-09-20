@@ -1,10 +1,13 @@
 'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var moment = require('moment');
+
+const yeoman = require('yeoman-generator');
+const chalk = require('chalk');
+const moment = require('moment');
+const path = require('path');
+const validation = require('../../lib/validation');
 
 function hyphenToCamel(hyphen) {
-  var toUpper = function (match, letter) {
+  const toUpper = function (match, letter) {
     return letter.toUpperCase();
   };
 
@@ -13,22 +16,44 @@ function hyphenToCamel(hyphen) {
 }
 
 module.exports = yeoman.Base.extend({
+  initializing: function () {
+    this.distPath = path.resolve(this.destinationPath(`components/`));
+  },
   prompting: function () {
-    var prompts = [
+    const prompts = [
       {
         type: 'input',
         name: 'name',
-        message: 'Input the name of the component:'
+        message: 'Input the name of the component:',
+        validate: v => {
+          if (!validation.isHyphen(v)) {
+            return 'Must input hyphen name(eg. comp-name, compname, compname2)';
+          }
+
+          if (validation.nameConflict(v, this.distPath)) {
+            return `component ${v} has already exists, please create a new component`;
+          }
+
+          return true;
+        }
       },
       {
         type: 'input',
         name: 'author',
-        message: 'Input the author of the component:'
+        message: 'Input the author of the component:',
+        validate: v => {
+          if (validation.notEmpty(v)) {
+            return true;
+          }
+
+          return 'Author can not be null';
+        }
       },
       {
         type: 'confirm',
         name: 'stateless',
-        message: 'Want to use stateless component?'
+        message: 'Want to use stateless component?',
+        default: false
       }
     ];
 
@@ -41,22 +66,20 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
-    console.log(this.args);
-
     this.fs.copyTpl(
       this.templatePath('**/*'),
-      this.destinationPath(`components/${this.props.name}/`),
+      path.resolve(this.distPath, `${this.props.name}`),
       this.props
     );
 
     this.fs.move(
-      this.destinationPath(`components/${this.props.name}/lib/$upperName.jsx`),
-      this.destinationPath(`components/${this.props.name}/lib/${this.props.upperName}.jsx`)
+      path.resolve(this.distPath, `${this.props.name}/lib/$upperName.jsx`),
+      path.resolve(this.distPath, `${this.props.name}/lib/${this.props.upperName}.jsx`)
     );
   },
 
   end: function () {
     this.log(`create component ${chalk.green(this.props.name)} success!`);
-    this.log(`component loacated in dir: ${chalk.green(this.destinationPath(this.props.name + '/'))}`);
+    this.log(`component loacated in dir: ${chalk.green(path.resolve(this.distPath, `${this.props.name}`))}`);
   }
 });
