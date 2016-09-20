@@ -2,19 +2,51 @@
   "name": "generator-imui-component",
   "version": "0.1.0",
   "description": "yeoman generator of imui component",
+  "homepage": "https://github.com/coolriver/generator-imui-component#readme",
+  "author": "coolriver",
+  "files": [
+    "generators"
+  ],
   "main": "index.js",
+  "keywords": [
+    "yeoman-generator"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp",
+    "prepublish": "gulp prepublish"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/coolriver/generator-imui-component.git"
   },
-  "keywords": ["yeoman-generator"],
-  "author": "coolriver",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/coolriver/generator-imui-component/issues"
   },
-  "homepage": "https://github.com/coolriver/generator-imui-component#readme"
+  "dependencies": {
+    "yeoman-generator": "^0.23.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.0"
+  },
+  "devDependencies": {
+    "yeoman-test": "^1.0.0",
+    "yeoman-assert": "^2.0.0",
+    "eslint": "^3.1.1",
+    "eslint-config-xo-space": "^0.14.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-istanbul": "^1.0.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-coveralls": "^0.1.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  }
 }
