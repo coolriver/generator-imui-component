@@ -1,0 +1,20 @@
+{
+  "name": "generator-imui-component",
+  "version": "0.1.0",
+  "description": "yeoman generator of imui component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolriver/generator-imui-component.git"
+  },
+  "keywords": ["yeoman-generator"],
+  "author": "coolriver",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coolriver/generator-imui-component/issues"
+  },
+  "homepage": "https://github.com/coolriver/generator-imui-component#readme"
+}

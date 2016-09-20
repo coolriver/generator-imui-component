@@ -1,2 +1,2 @@
 # generator-imui-component
-yoman generator of imui component
+yeoman generator of imui component
