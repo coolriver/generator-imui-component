@@ -6,13 +6,22 @@ var helpers = require('yeoman-test');
 describe('generator-imui-component:app', function () {
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true})
+      .withPrompts({
+        name: 'testComp',
+        author: 'coolriver'
+      })
       .toPromise();
   });
 
   it('creates files', function () {
     assert.file([
-      'dummyfile.txt'
+      'components/testComp/index.jsx',
+      'components/testComp/style/index.scss',
+      'components/testComp/lib/TestComp.jsx',
+      'components/testComp/demo/demo.jsx',
+      'components/testComp/demo/demo.scss',
+      'components/testComp/demo/index.html',
+      'components/testComp/demo/doc.md'
     ]);
   });
 });
