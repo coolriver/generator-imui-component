@@ -14,7 +14,7 @@ describe('generator-imui-component:app', function () {
       .toPromise();
   });
 
-  it('creates files', function () {
+  it('creates files', function (done) {
     assert.file([
       'components/testComp/index.jsx',
       'components/testComp/style/index.scss',
@@ -24,5 +24,7 @@ describe('generator-imui-component:app', function () {
       'components/testComp/demo/index.html',
       'components/testComp/demo/doc.md'
     ]);
+
+    done();
   });
 });
