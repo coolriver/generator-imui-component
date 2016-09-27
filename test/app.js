@@ -8,7 +8,8 @@ describe('generator-imui-component:app', function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
         name: 'testComp',
-        author: 'coolriver'
+        author: 'coolriver',
+        stateless: true
       })
       .toPromise();
   });
