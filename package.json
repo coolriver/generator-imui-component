@@ -1,6 +1,6 @@
 {
   "name": "generator-imui-component",
-  "version": "0.2.1",
+  "version": "0.3.1",
   "description": "yeoman generator of imui component",
   "homepage": "https://github.com/coolriver/generator-imui-component#readme",
   "author": "coolriver",
@@ -25,8 +25,9 @@
     "url": "https://github.com/coolriver/generator-imui-component/issues"
   },
   "dependencies": {
-    "yeoman-generator": "^0.23.0",
     "chalk": "^1.0.0",
+    "imweb-git-user-name": "^0.1.0",
+    "yeoman-generator": "^0.23.0",
     "yosay": "^1.0.0"
   },
   "devDependencies": {

@@ -4,6 +4,7 @@ const yeoman = require('yeoman-generator');
 const chalk = require('chalk');
 const moment = require('moment');
 const path = require('path');
+const getName = require('imweb-git-user-name');
 const validation = require('../../lib/validation');
 
 function hyphenToCamel(hyphen) {
@@ -20,6 +21,8 @@ module.exports = yeoman.Base.extend({
     this.distPath = path.resolve(this.destinationPath(`components/`));
   },
   prompting: function () {
+    this.userName = getName() || getName(true);
+
     const prompts = [
       {
         type: 'input',
@@ -47,6 +50,9 @@ module.exports = yeoman.Base.extend({
           }
 
           return 'Author can not be null';
+        },
+        when: () => {
+          return !this.userName
         }
       },
       {
@@ -62,6 +68,10 @@ module.exports = yeoman.Base.extend({
       this.props = props;
       this.props.upperName = hyphenToCamel(this.props.name);
       this.props.date = moment().format('YYYY-MM-DD');
+
+      if (!this.props.author) {
+        this.props.author = this.userName;
+      }
     }.bind(this));
   },
 
