@@ -1,4 +1,4 @@
-# generator-imui-component [![NPM version](https://img.shields.io/npm/v/generator-imui-component.svg)](https://www.npmjs.com/package/generator-imui-component) [![Build Status](https://travis-ci.org/imweb/generator-imui-component.svg?branch=master)](https://travis-ci.org/imweb/generator-imui-component)
+# generator-imui-component [![NPM version](https://img.shields.io/npm/v/generator-imui-component.svg)](https://www.npmjs.com/package/generator-imui-component) [![Build Status](https://travis-ci.org/coolriver/generator-imui-component.svg?branch=master)](https://travis-ci.org/coolriver/generator-imui-component)
 > yeoman generator插件，用于生成IMUI组件
 
 ## Installation
