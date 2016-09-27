@@ -4,6 +4,8 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 describe('generator-imui-component:app', function () {
+  this.timeout(5000);
+
   before(function () {
     return helpers.run(path.join(__dirname, '../generators/app'))
       .withPrompts({
@@ -15,8 +17,6 @@ describe('generator-imui-component:app', function () {
   });
 
   it('creates files', function () {
-    this.timeout(30000);
-
     assert.file([
       'components/testComp/index.jsx',
       'components/testComp/style/index.scss',

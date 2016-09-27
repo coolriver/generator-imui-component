@@ -13,7 +13,7 @@
     "yeoman-generator"
   ],
   "scripts": {
-    "test": "gulp",
+    "test": " mocha 'test/*.js' --timeout 30000",
     "prepublish": "gulp prepublish"
   },
   "repository": {
