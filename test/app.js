@@ -27,4 +27,5 @@ describe('generator-imui-component:app', function () {
       'components/testComp/demo/doc.md'
     ]);
   });
+
 });
